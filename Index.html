@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="Faviconevy.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Catálogo Evy-Beauty-Store</title>
+  <meta name="description" content="Mira nuestro catálogo de LogoArtCR.">
+
+  <!-- Open Graph (Vista previa en WhatsApp, Facebook, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Evy-Beauty-Store">
+  <meta property="og:description" content="Mira nuestro catálogo de Evy-Beauty-Store.">
+  <meta property="og:url" content="https://logoartcr.github.io/catalogo/">
+  <meta property="og:image" content="https://logoartcr.github.io/catalogo/Faviconevy.png">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f4f4f4;
+    }
+
+    #mi-catalogo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe id="mi-catalogo" src=""></iframe>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const idProducto = (urlParams.get('id') || '').trim();
+
+    let urlFinal = "https://script.google.com/macros/s/AKfycbzuiETBWArDSm2ALkVlSFmZgKLYWYx6BcFbn8lflO2wyjxxOtkeVLXA0nSJpYSxnACU1A/exec";
+
+    if (idProducto) {
+      const conector = urlFinal.includes('?') ? '&' : '?';
+      urlFinal += conector + "id=" + encodeURIComponent(idProducto);
+    }
+
+    document.getElementById('mi-catalogo').src = urlFinal;
+  </script>
+
+</body>
+</html>
